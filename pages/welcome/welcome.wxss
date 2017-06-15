@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #b3d4db;
 }
 
 
@@ -12,6 +13,7 @@
 
 
 .user-name{
+  margin-top: 100rpx;
   font-size: 32rpx;
   font-weight: bold;
 }
@@ -24,9 +26,15 @@
 }
 
 .moto-container{
+  margin-top: 200rpx;
   border: 1px solid #405f80;
   width: 200rpx;
   height: 80rpx;
   border-radius: 5px;
   text-align: center;
+}
+
+page{
+  height: 100%;
+  background-color: #b3d4db;
 }
