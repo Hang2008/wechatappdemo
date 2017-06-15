@@ -29,3 +29,6 @@
   line-height: 80rpx;
   color: #405f80;
 }
+page{
+  background-color: #b3d4db;
+}
