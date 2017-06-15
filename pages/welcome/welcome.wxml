@@ -1,2 +1,7 @@
-<!--pages/welcome/welcome.wxml-->
-<text>pages/welcome/welcome.wxml</text>
+<view class="container">
+  <image class="user-avatar" src="/images/pzy.png"></image>
+  <text class="user-name"><text style="color:red">Hello</text>, 朴智妍</text>
+  <view class="moto-container">
+    <text class="moto">开启小程序之旅</text>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+text{
+  font-family: 'Times New Roman', Times, serif;
+}
+page{
+  background-color: #b3d4db;
+}
