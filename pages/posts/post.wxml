@@ -1,19 +1,37 @@
-<view class=" ">
+<view>
   <swiper indicator-dots="true" autoplay="true" interval="5000">
-    <swiper-item><image src="/images/pzy_01.png"></image></swiper-item>
-    <swiper-item><image src="/images/pzy_02.png"></image></swiper-item>
-    <swiper-item><image src="/images/pzy_03.png"></image></swiper-item>
+    <swiper-item><image src="/images/swiper/pzy_01.png"></image></swiper-item>
+    <swiper-item><image src="/images/swiper/pzy_02.png"></image></swiper-item>
+    <swiper-item><image src="/images/swiper/pzy_03.png"></image></swiper-item>
   </swiper>
-  <view class="">
-    <view class="">
-      <image src="/images/tx1.png"></image>
-      <text>Nov 12, 2017</text>
+  <view class="post-container">
+    <view class="post-author-date">
+      <image class="post-auther-icon" src="/images/touxiang/tx1.png"></image>
+      <text class="post-date-text ">Nov 12, 2017</text>
+    </view>
+    <text class="post-title">风暴英雄是暴雪的游戏</text>
+    <image class="post-image" src="/images/post/post_fbyx1.jpg"></image>
+    <text class="post-content">又一位英雄来到《风暴英雄》时空枢纽，而且这位新英雄冷酷无情，手段狠辣，他就是《暗黑破坏神III》中死亡的化身：马萨伊尔。此外，随着全新赛季的开始，《风暴英雄》和《暗黑破坏神III》的联动活动也正式展开，想要获得两款游戏丰厚奖励的玩家们千万不要错过</text>
+    <view class="post-comment">
+      <image class="post-comment-image" src="/images/touxiang/tx2.png"></image>
+      <text class="post-comment-text">12</text>
+      <image class="post-comment-image" src="/images/touxiang/tx2.png"></image>
+      <text class="post-comment-text">3456</text>
     </view>
   </view>
-  <view class="">
-    <view class="">
-      <image src="/images/tx2.png"></image>
-      <text>Nov 11, 2017</text>
+  <view class="post-container">
+    <view class="post-author-date">
+      <image class="post-auther-icon" src="/images/touxiang/tx4.png"></image>
+      <text class="post-date-text ">Nov 15, 2017</text>
+    </view>
+    <text class="post-title">联动《暗黑破坏神》赢取丰厚奖励</text>
+    <image class="post-image" src="/images/post/post_fbyx2.jpg"></image>
+    <text class="post-content">在感知到一个恶魔腐蚀肆虐的新国度后，马萨伊尔的黑暗灵魂开始在时空枢纽中成型。《风暴英雄》中的马萨伊尔保留了他在《暗黑破坏神》中那所到之处便留下死亡的特性，这名刺客类近战英雄能够从远处标记目标，以便他切入收割敌人的灵魂，吸取受害者的生命。</text>
+    <view class="post-comment">
+      <image class="post-comment-image" src="/images/touxiang/tx2.png"></image>
+      <text class="post-comment-text">33</text>
+      <image class="post-comment-image" src="/images/touxiang/tx2.png"></image>
+      <text class="post-comment-text">116</text>
     </view>
   </view>
 </view>
