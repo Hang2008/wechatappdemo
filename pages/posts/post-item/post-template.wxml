@@ -1,0 +1,17 @@
+<template name="postItem">
+  <view class="post-container" data-postid="{{post_id}}" catchtap="onContentTap">
+    <view class="post-author-date">
+      <image wx:if="{{show_authorImg}}" class="post-auther-icon" src="{{author_img}}"></image>
+      <text class="post-date-text ">{{"日期: " + date}}</text>
+    </view>
+    <text class="post-title">第{{post_id}}篇: {{title}}</text>
+    <image class="post-image" src="{{post_img}}"></image>
+    <text class="post-content">{{post_text}}</text>
+    <view class="post-comment">
+      <image class="post-comment-image" src="/images/touxiang/tx2.png"></image>
+      <text class="post-comment-text">{{like}}</text>
+      <image class="post-comment-image" src="/images/touxiang/tx2.png"></image>
+      <text class="post-comment-text">{{view}}</text>
+    </view>
+  </view>
+</template>

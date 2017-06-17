@@ -1,18 +1,5 @@
 // pages/welcome/welcome.js
 Page({
-  onTap: function() {
-    console.log("aaa");
-    // wx.navigateTo({
-    //   url: '../posts/post',
-    //   success: function() {
-    //   },
-    //   fail: function() {
-    //   },
-    //   complete: function() {
-    //   }
-    // });
-  },
-
   onTextTap: function() {
     wx.redirectTo({
       url: '../posts/post'
