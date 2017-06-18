@@ -1,0 +1,22 @@
+<import src="post-item/post-item-template.wxml" />
+
+<view>
+  <swiper indicator-dots="ture" autoplay="ture" interval="5000">
+    <swiper-item>
+      <image src="/images/lion.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/lulu.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/wolf.jpg"></image>
+    </swiper-item>
+  </swiper>
+  <!--以下页面wx的使用存在问题，请后续研究，平铺数据-->
+  <block wx:for="{{post_key}}" wx:key="unique" wx:for-item="item" wx:for-index="idx">
+    <view catchtap="onPostTap" data-postId="{{item.postId}}">
+      <template is="postItem" data="{{...item}}" />
+    </view>
+  </block>
+
+</view>

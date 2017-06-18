@@ -1,5 +1,14 @@
 {
   "pages": [
-    "pages/welcome/welcome"
-  ]
+      "pages/welcome/welcome",
+      "pages/posts/post",
+      "pages/posts/post-detail/post-detail"
+  ],
+    "window": {
+      "navigationBarTextStyle": "black",
+      "navigationBarTitleText": "珊瑚科技出品",
+      "backgroundColor": "#eeeeee",
+      "navigationBarBackgroundColor": "#405f80",
+      "backgroundTextStyle": "light"
+    }
 }
