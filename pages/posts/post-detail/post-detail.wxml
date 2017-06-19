@@ -1,19 +1,20 @@
 <view class="container">
-  <image class="header-image" src="/images/post/post_swxf_detail.jpg"></image>
+  <image class="header-image" src="{{detailInfo.head_img}}"></image>
   <image class="music-icon" src="/images/icon/QQ_music.png"></image>
   <view class="author">
-    <image class="author-image" src="/images/touxiang/tx1.png"></image>
-    <text class="author-name">周杰伦</text>
+    <image class="author-image" src="{{detailInfo.author_img}}"></image>
+    <text class="author-name">{{detailInfo.author_name}}</text>
     <text class="publish-text">发表于</text>
-    <text class="author-date">三天前</text>
+    <text class="author-date">{{detailInfo.publish_time}}</text>
   </view>
-  <text class="title">炉石传说好玩吗?</text>
+  <text class="title">{{detailInfo.title}}</text>
   <view class="tools">
     <view class="tool-item">
-      <image src="/images/icon/tag.png"></image>
-      <image class="share-img" src="/images/icon/pengyouquan.png"></image>
+      <image wx:if="{{isFavorite}}" catchtap="saveFavorite" src="/images/icon/favorite_active.png"></image>
+      <image wx:else catchtap="saveFavorite" src="/images/icon/favorite_default.png"></image>
+      <image catchtap="shareToMoment" class="share-img" src="/images/icon/pengyouquan.png"></image>
     </view>
     <view class="tool-line"></view>
   </view>
-  <text class="detail">我玩炉石传说几年了还没有上传说真是够了!</text>
+  <text class="detail">{{detailInfo.detail}}</text>
 </view>

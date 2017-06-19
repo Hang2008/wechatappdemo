@@ -1,66 +1,44 @@
-// post-detail.js
+var data = require("../../../data/postsData");
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (options.id) {
+      this.setData({
+        currentId: options.id - 1,
+        detailInfo: data.postList[options.id - 1]
+      });
+      var allFavorite = wx.getStorageSync("all_favorite");
+      if (allFavorite.hasOwnProperty(options.id - 1)) {
+        this.setData({
+          isFavorite: allFavorite[options.id - 1]
+        });
+      } else {
+        var favorites = {};
+        favorites[options.id - 1] = false;
+        wx.setStorageSync("all_favorite", favorites);
+      }
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  saveFavorite: function () {
+    var allFavorite = wx.getStorageSync("all_favorite");
+    allFavorite[this.data.currentId] = !allFavorite[this.data.currentId];
+    wx.setStorageSync("all_favorite", allFavorite);
+    this.setData({
+      isFavorite: allFavorite[this.data.currentId]
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  shareToMoment: function () {
+    wx.clearStorageSync();
   }
 })

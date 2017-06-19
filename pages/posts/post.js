@@ -16,9 +16,9 @@ Page({
   },
 
   onContentTap: function (event) {
-    console.log("postid = " + event.currentTarget.dataset.postid);
+    var postid = event.currentTarget.dataset.postid;
     wx.navigateTo({
-      url: '../posts/post-detail/post-detail'
+      url: '../posts/post-detail/post-detail?id=' + postid
     });
   }
 })
