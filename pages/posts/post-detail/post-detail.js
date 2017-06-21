@@ -3,6 +3,7 @@ Page({
   /**
    * 页面的初始数据
    */
+  shareItemList: ['分享到微信', '分享到微博', '分享到QQ'],
   data: {
 
   },
@@ -16,8 +17,13 @@ Page({
         currentId: options.id - 1,
         detailInfo: data.postList[options.id - 1]
       });
+
       var allFavorite = wx.getStorageSync("all_favorite");
-      if (allFavorite.hasOwnProperty(options.id - 1)) {
+      if (allFavorite) {
+        if (!allFavorite[options.id - 1]) {
+          allFavorite[options.id - 1] = false;
+          wx.setStorageSync("all_favorite", allFavorite);
+        }
         this.setData({
           isFavorite: allFavorite[options.id - 1]
         });
@@ -36,9 +42,35 @@ Page({
     this.setData({
       isFavorite: allFavorite[this.data.currentId]
     });
+    this.showMyToast(allFavorite[this.data.currentId] ? '收藏成功' : '取消收藏');
   },
 
   shareToMoment: function () {
-    wx.clearStorageSync();
+    var self = this;
+    wx.showActionSheet({
+      itemList: self.shareItemList,
+      success: function (res) {
+        // self.showMyToast(self.shareItemList[res.tapIndex] + "成功!");
+        self.showMyModal(self.shareItemList[res.tapIndex]);
+      },
+      fail: function (res) {
+        self.showMyToast(res.errMsg);
+      },
+      itemColor: "#405f80"
+    });
+  },
+
+  showMyToast: function (string) {
+    wx.showToast({
+      title: string,
+      duration: 2000
+    });
+  },
+
+  showMyModal: function (title) {
+    wx.showModal({
+      title: title,
+      content: '我的天哪 分享功能用不鸟 呜呜呜呜呜...'
+    })
   }
 })
