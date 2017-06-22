@@ -1,6 +1,6 @@
 <view class="container">
   <image class="header-image" src="{{detailInfo.head_img}}"></image>
-  <image class="music-icon" src="/images/icon/QQ_music.png"></image>
+  <image class="music-icon" catchtap="audioIconClick" data-audio-src="{{detailInfo.audioUrl}}" data-audio-title="{{detailInfo.audioTitle}}" src="/images/icon/QQ_music.png"></image>
   <view class="author">
     <image class="author-image" src="{{detailInfo.author_img}}"></image>
     <text class="author-name">{{detailInfo.author_name}}</text>

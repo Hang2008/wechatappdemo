@@ -12,37 +12,45 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var self = this;
     if (options.id) {
-      this.setData({
+      self.setData({
         currentId: options.id - 1,
         detailInfo: data.postList[options.id - 1]
       });
-
-      var allFavorite = wx.getStorageSync("all_favorite");
-      if (allFavorite) {
-        if (!allFavorite[options.id - 1]) {
-          allFavorite[options.id - 1] = false;
-          wx.setStorageSync("all_favorite", allFavorite);
+      wx.getStorage({
+        key: 'all_favorite',
+        success: function (res) {
+          var allFavorite = res.data;
+          if (allFavorite) {
+            if (!allFavorite[options.id - 1]) {
+              allFavorite[options.id - 1] = false;
+              wx.setStorageSync("all_favorite", allFavorite);
+            }
+            self.setData({
+              isFavorite: allFavorite[options.id - 1]
+            });
+          }
+        },
+        fail: function () {
+          var favorites = {};
+          favorites[options.id - 1] = false;
+          wx.setStorageSync("all_favorite", favorites);
         }
-        this.setData({
-          isFavorite: allFavorite[options.id - 1]
-        });
-      } else {
-        var favorites = {};
-        favorites[options.id - 1] = false;
-        wx.setStorageSync("all_favorite", favorites);
-      }
+      });
     }
   },
 
   saveFavorite: function () {
     var allFavorite = wx.getStorageSync("all_favorite");
-    allFavorite[this.data.currentId] = !allFavorite[this.data.currentId];
-    wx.setStorageSync("all_favorite", allFavorite);
-    this.setData({
-      isFavorite: allFavorite[this.data.currentId]
-    });
-    this.showMyToast(allFavorite[this.data.currentId] ? '收藏成功' : '取消收藏');
+    if (allFavorite) {
+      allFavorite[this.data.currentId] = !allFavorite[this.data.currentId];
+      wx.setStorageSync("all_favorite", allFavorite);
+      this.setData({
+        isFavorite: allFavorite[this.data.currentId]
+      });
+      this.showMyToast(allFavorite[this.data.currentId] ? '收藏成功' : '取消收藏');
+    }
   },
 
   shareToMoment: function () {
@@ -72,5 +80,13 @@ Page({
       title: title,
       content: '我的天哪 分享功能用不鸟 呜呜呜呜呜...'
     })
+  },
+
+  audioIconClick(event) {
+    wx.playBackgroundAudio({
+      dataUrl: event.target.dataset.audioSrc,
+      title: event.target.dataset.audioTitle,
+      coverImgUrl: 'http://y.gtimg.cn/music/photo_new/T002R150x150M000002xOmp62kqSic.jpg?max_age=2592000'
+    });
   }
 })
