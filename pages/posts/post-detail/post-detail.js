@@ -104,7 +104,33 @@ Page({
   },
 
   audioIconClick(event) {
-    if (!app.globleData.playingId == this.currentPostId) {
+    // if (app.globleData.playingId && !app.globleData.playingId == this.currentPostId) {
+    //   wx.pauseBackgroundAudio();
+    //   wx.playBackgroundAudio({
+    //     dataUrl: event.target.dataset.audioSrc,
+    //     title: event.target.dataset.audioTitle,
+    //     coverImgUrl: ""
+    //   });
+    //   app.globleData.playingId = this.currentPostId;
+    //   app.globleData.isPlaying = true;
+    // } else {
+    //   if (!app.globleData.isPlaying) {
+    //     wx.playBackgroundAudio({
+    //       dataUrl: event.target.dataset.audioSrc,
+    //       title: event.target.dataset.audioTitle,
+    //       coverImgUrl: ""
+    //     });
+    //     app.globleData.playingId = this.currentPostId;
+    //     app.globleData.isPlaying = true;
+    //   } else {
+    //     wx.pauseBackgroundAudio();
+    //     app.globleData.isPlaying = false;
+    //   }
+    //   this.setData({
+    //     isPlaying: app.globleData.isPlaying
+    //   });
+    // }
+    if (!app.globleData.isPlaying) {
       wx.playBackgroundAudio({
         dataUrl: event.target.dataset.audioSrc,
         title: event.target.dataset.audioTitle,
@@ -113,18 +139,8 @@ Page({
       app.globleData.playingId = this.currentPostId;
       app.globleData.isPlaying = true;
     } else {
-      if (!app.globleData.isPlaying) {
-        wx.playBackgroundAudio({
-          dataUrl: event.target.dataset.audioSrc,
-          title: event.target.dataset.audioTitle,
-          coverImgUrl: ""
-        });
-        app.globleData.playingId = this.currentPostId;
-        app.globleData.isPlaying = true;
-      } else {
-        wx.pauseBackgroundAudio();
-        app.globleData.isPlaying = false;
-      }
+      wx.pauseBackgroundAudio();
+      app.globleData.isPlaying = false;
     }
     this.setData({
       isPlaying: app.globleData.isPlaying

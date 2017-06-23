@@ -2,7 +2,7 @@ App({
 
   globleData: {
     isPlaying: false,
-    playingId: ""
+    playingId: null
   },
 
   /**
