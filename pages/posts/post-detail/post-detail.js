@@ -1,10 +1,11 @@
 var data = require("../../../data/postsData");
+var app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   shareItemList: ['分享到微信', '分享到微博', '分享到QQ'],
-  isPlaying: false,
+  currentPostId: null,
   data: {
 
   },
@@ -16,6 +17,7 @@ Page({
     var self = this;
     if (options.id) {
       self.setData({
+        isPlaying: app.globleData.isPlaying,
         currentId: options.id - 1,
         detailInfo: data.postList[options.id - 1]
       });
@@ -40,8 +42,25 @@ Page({
         }
       });
     }
+    this.setAudioListner();
   },
 
+  setAudioListner: function () {
+    var self = this;
+    wx.onBackgroundAudioPlay(function () {
+      app.globleData.isPlaying = true;
+      self.setData({
+        isPlaying: true
+      });
+    });
+
+    wx.onBackgroundAudioPause(function () {
+      app.globleData.isPlaying = false;
+      self.setData({
+        isPlaying: false
+      });
+    });
+  },
   saveFavorite: function () {
     var allFavorite = wx.getStorageSync("all_favorite");
     if (allFavorite) {
@@ -84,16 +103,20 @@ Page({
   },
 
   audioIconClick(event) {
-    if (!this.isPlaying) {
+    if (!app.globleData.isPlaying) {
       wx.playBackgroundAudio({
         dataUrl: event.target.dataset.audioSrc,
         title: event.target.dataset.audioTitle,
-        coverImgUrl: 'http://y.gtimg.cn/music/photo_new/T002R150x150M000002xOmp62kqSic.jpg?max_age=2592000'
+        coverImgUrl: ""
       });
-      this.isPlaying = true;
+      app.globleData.playingId =
+        app.globleData.isPlaying = true;
     } else {
       wx.pauseBackgroundAudio();
-      this.isPlaying = false;
+      app.globleData.isPlaying = false;
     }
+    this.setData({
+      isPlaying: app.globleData.isPlaying
+    });
   }
 })

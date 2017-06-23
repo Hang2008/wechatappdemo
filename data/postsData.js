@@ -13,6 +13,7 @@ var posts = [
     view: 325,
     audioUrl: "http://dl.stream.qqmusic.qq.com/C400004cNibC11gcZB.m4a?vkey=35AEE91EBB322FA51314C1FBE39278D0A7171EDC2A8E6BEBE892CC3F96513E39FA32501DAFA96E4B8334560AE4C607BC07303545D33E95BB&guid=1303518726&uin=0&fromtag=66",
     audioTitle: "SEVE",
+    audioCover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002FamlA1vA69p.jpg?max_age=2592000",
     show_authorImg: true,
     post_id: 1
   },
@@ -29,6 +30,7 @@ var posts = [
     like: 33,
     audioUrl: "http://dl.stream.qqmusic.qq.com/C400003OUlho2HcRHC.m4a?vkey=FDEF258712129881998906BC4585D6DBF39D972C243FAF60B795F68B25AE8A412DB495EA58C289D44AFE6DF4C6D6DAE0C461F6718B205382&guid=1303518726&uin=0&fromtag=66",
     audioTitle: "告白气球",
+    audioCover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg?max_age=2592000",
     view: 425,
     show_authorImg: false,
     post_id: 2
@@ -46,6 +48,7 @@ var posts = [
     like: 35,
     audioUrl: "http://dl.stream.qqmusic.qq.com/C400004cNibC11gcZB.m4a?vkey=35AEE91EBB322FA51314C1FBE39278D0A7171EDC2A8E6BEBE892CC3F96513E39FA32501DAFA96E4B8334560AE4C607BC07303545D33E95BB&guid=1303518726&uin=0&fromtag=66",
     audioTitle: "SEVE",
+    audioCover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002FamlA1vA69p.jpg?max_age=2592000",
     view: 4125,
     show_authorImg: true,
     post_id: 3
@@ -63,6 +66,7 @@ var posts = [
     like: 33,
     audioUrl: "http://dl.stream.qqmusic.qq.com/C400003OUlho2HcRHC.m4a?vkey=FDEF258712129881998906BC4585D6DBF39D972C243FAF60B795F68B25AE8A412DB495EA58C289D44AFE6DF4C6D6DAE0C461F6718B205382&guid=1303518726&uin=0&fromtag=66",
     audioTitle: "告白气球",
+    audioCover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg?max_age=2592000",
     view: 425,
     show_authorImg: false,
     post_id: 4
@@ -80,6 +84,7 @@ var posts = [
     like: 53,
     audioUrl: "http://dl.stream.qqmusic.qq.com/C400004cNibC11gcZB.m4a?vkey=35AEE91EBB322FA51314C1FBE39278D0A7171EDC2A8E6BEBE892CC3F96513E39FA32501DAFA96E4B8334560AE4C607BC07303545D33E95BB&guid=1303518726&uin=0&fromtag=66",
     audioTitle: "SEVE",
+    audioCover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002FamlA1vA69p.jpg?max_age=2592000",
     view: 176,
     show_authorImg: true,
     post_id: 5
@@ -98,6 +103,7 @@ var posts = [
     view: 425,
     audioUrl: "http://dl.stream.qqmusic.qq.com/C400003OUlho2HcRHC.m4a?vkey=FDEF258712129881998906BC4585D6DBF39D972C243FAF60B795F68B25AE8A412DB495EA58C289D44AFE6DF4C6D6DAE0C461F6718B205382&guid=1303518726&uin=0&fromtag=66",
     audioTitle: "告白气球",
+    audioCover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg?max_age=2592000",
     show_authorImg: false,
     post_id: 6
   },
@@ -115,6 +121,7 @@ var posts = [
     view: 425,
     audioUrl: "http://dl.stream.qqmusic.qq.com/C400004cNibC11gcZB.m4a?vkey=35AEE91EBB322FA51314C1FBE39278D0A7171EDC2A8E6BEBE892CC3F96513E39FA32501DAFA96E4B8334560AE4C607BC07303545D33E95BB&guid=1303518726&uin=0&fromtag=66",
     audioTitle: "SEVE",
+    audioCover: "https://y.gtimg.cn/music/photo_new/T002R300x300M000002FamlA1vA69p.jpg?max_age=2592000",
     show_authorImg: true,
     post_id: 7
   }
