@@ -16,8 +16,9 @@ Page({
   onLoad: function (options) {
     var self = this;
     if (options.id) {
+      self.currentPostId = options.id - 1;
       self.setData({
-        isPlaying: app.globleData.isPlaying,
+        isPlaying: app.globleData.playingId == self.currentPostId ? app.globleData.isPlaying : false,
         currentId: options.id - 1,
         detailInfo: data.postList[options.id - 1]
       });
@@ -103,17 +104,27 @@ Page({
   },
 
   audioIconClick(event) {
-    if (!app.globleData.isPlaying) {
+    if (!app.globleData.playingId == this.currentPostId) {
       wx.playBackgroundAudio({
         dataUrl: event.target.dataset.audioSrc,
         title: event.target.dataset.audioTitle,
         coverImgUrl: ""
       });
-      app.globleData.playingId =
-        app.globleData.isPlaying = true;
+      app.globleData.playingId = this.currentPostId;
+      app.globleData.isPlaying = true;
     } else {
-      wx.pauseBackgroundAudio();
-      app.globleData.isPlaying = false;
+      if (!app.globleData.isPlaying) {
+        wx.playBackgroundAudio({
+          dataUrl: event.target.dataset.audioSrc,
+          title: event.target.dataset.audioTitle,
+          coverImgUrl: ""
+        });
+        app.globleData.playingId = this.currentPostId;
+        app.globleData.isPlaying = true;
+      } else {
+        wx.pauseBackgroundAudio();
+        app.globleData.isPlaying = false;
+      }
     }
     this.setData({
       isPlaying: app.globleData.isPlaying
