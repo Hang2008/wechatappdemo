@@ -4,6 +4,7 @@ Page({
    * 页面的初始数据
    */
   shareItemList: ['分享到微信', '分享到微博', '分享到QQ'],
+  isPlaying: false,
   data: {
 
   },
@@ -83,10 +84,16 @@ Page({
   },
 
   audioIconClick(event) {
-    wx.playBackgroundAudio({
-      dataUrl: event.target.dataset.audioSrc,
-      title: event.target.dataset.audioTitle,
-      coverImgUrl: 'http://y.gtimg.cn/music/photo_new/T002R150x150M000002xOmp62kqSic.jpg?max_age=2592000'
-    });
+    if (!this.isPlaying) {
+      wx.playBackgroundAudio({
+        dataUrl: event.target.dataset.audioSrc,
+        title: event.target.dataset.audioTitle,
+        coverImgUrl: 'http://y.gtimg.cn/music/photo_new/T002R150x150M000002xOmp62kqSic.jpg?max_age=2592000'
+      });
+      this.isPlaying = true;
+    } else {
+      wx.pauseBackgroundAudio();
+      this.isPlaying = false;
+    }
   }
 })
