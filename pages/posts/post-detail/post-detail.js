@@ -50,16 +50,20 @@ Page({
     var self = this;
     wx.onBackgroundAudioPlay(function () {
       app.globleData.isPlaying = true;
-      self.setData({
-        isPlaying: true
-      });
+      if (app.globleData.playingId && app.globleData.playingId == this.currentPostId) {
+        self.setData({
+          isPlaying: true
+        });
+      }
     });
 
     wx.onBackgroundAudioPause(function () {
       app.globleData.isPlaying = false;
-      self.setData({
-        isPlaying: false
-      });
+      if (app.globleData.playingId && app.globleData.playingId == this.currentPostId) {
+        self.setData({
+          isPlaying: false
+        });
+      }
     });
   },
   saveFavorite: function () {
