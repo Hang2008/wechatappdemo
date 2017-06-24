@@ -1,0 +1,8 @@
+<import src="../star/star-template.wxml" />
+<template name="movieTemplate">
+  <view>
+    <image src="/images/zhwhb.jpg"></image>
+    <text>指环王: 王者归来</text>
+    <template is="starsTemplate"></template>
+  </view>
+</template>
