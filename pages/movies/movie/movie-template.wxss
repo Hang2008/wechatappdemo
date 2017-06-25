@@ -1,0 +1,20 @@
+@import "../star/star-template.wxss";
+
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 22rpx;
+}
+
+/*设置最大长宽让图片自适应*/
+
+.movie-post {
+  max-height: 270rpx;
+  max-width: 180rpx;
+  padding-bottom: 15rpx;
+}
+
+.movie-title {
+  font-size: 24rpx;
+  margin-bottom: 15rpx;
+}

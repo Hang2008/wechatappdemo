@@ -1,10 +1,12 @@
 <template name="starsTemplate">
-  <view>
-    <image src="/images/icon/star.png"></image>
-    <image src="/images/icon/star.png"></image>
-    <image src="/images/icon/star.png"></image>
-    <image src="/images/icon/star.png"></image>
-    <image src="/images/icon/star.png"></image>
-    <text> 7.8</text>
+  <view class="pingfen-container">
+    <view class="stars">
+      <image src="/images/icon/star.png"></image>
+      <image src="/images/icon/star.png"></image>
+      <image src="/images/icon/star.png"></image>
+      <image src="/images/icon/star.png"></image>
+      <image src="/images/icon/star.png"></image>
+    </view>
+    <text class="score">7.9</text>
   </view>
 </template>
