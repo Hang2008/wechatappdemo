@@ -1,1 +1,59 @@
 @import "../movie/movie-template.wxss";
+
+.movielist-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+/*
+display: flex;
+  flex-direction: row;
+  不支持子元素float
+文字和图片对其
+*/
+
+.list-header {
+  width: 92%;
+  margin: auto;
+  padding: 15rpx;
+}
+
+/*
+设置总宽 margin auto水平居中
+文字和图片对其
+*/
+
+.list-movies {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: auto;
+}
+
+.header-more {
+  float: right;
+}
+
+/*
+vertical-align: middle;
+文字和图片对其
+(盒子模型不能使用)
+*/
+
+.header-arrow {
+  vertical-align: middle;
+  height: 20rpx;
+  width: 20rpx;
+}
+
+.header-more-text {
+  vertical-align: middle;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+  color: #1f4ba5;
+}
+
+.header-onshow {
+  font-size: 20rpx;
+}

@@ -9,8 +9,8 @@
 /*设置最大长宽让图片自适应*/
 
 .movie-post {
-  max-height: 270rpx;
-  max-width: 180rpx;
+  max-height: 280rpx;
+  max-width: 190rpx;
   padding-bottom: 15rpx;
 }
 
