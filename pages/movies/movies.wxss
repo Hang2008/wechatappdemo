@@ -1,1 +1,9 @@
 @import "movie-list/movie-list-template.wxss";
+
+.mainContainer {
+  background-color: #f2f2f2;
+}
+
+text {
+  color: #666;
+}

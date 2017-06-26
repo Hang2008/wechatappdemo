@@ -9,9 +9,9 @@
       </view>
     </view>
     <view class="list-movies">
-      <template is="movieTemplate"></template>
-      <template is="movieTemplate"></template>
-      <template is="movieTemplate"></template>
+      <block wx:for="{{movies}}" wx:for-item="movie" wx:key="unique">
+        <template is="movieTemplate" data="{{...movie}}"></template>
+      </block>
     </view>
   </view>
 </template>

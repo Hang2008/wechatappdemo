@@ -3,7 +3,7 @@
 .movie-container {
   display: flex;
   flex-direction: column;
-  padding: 0 22rpx;
+  padding: 0 22rpx 10rpx 22rpx;
 }
 
 /*设置最大长宽让图片自适应*/

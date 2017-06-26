@@ -1,8 +1,8 @@
 <import src="../star/star-template.wxml" />
 <template name="movieTemplate">
   <view class="movie-container">
-    <image class="movie-post" src="/images/zhwhb.jpg"></image>
-    <text class="movie-title">指环王: 王者归来</text>
-    <template is="starsTemplate"></template>
+    <image class="movie-post" src="{{coverImg}}"></image>
+    <text class="movie-title">{{title}}</text>
+    <template is="starsTemplate" data="{{average}}"></template>
   </view>
 </template>

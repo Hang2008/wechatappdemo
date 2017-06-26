@@ -2,7 +2,8 @@ App({
 
   globleData: {
     isPlaying: false,
-    playingId: null
+    playingId: null,
+    baseUrl: "https://api.douban.com"
   },
 
   /**
