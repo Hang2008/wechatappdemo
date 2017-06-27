@@ -3,6 +3,7 @@
   <view class="movie-container">
     <image class="movie-post" src="{{coverImg}}"></image>
     <text class="movie-title">{{title}}</text>
-    <template is="starsTemplate" data="{{average}}"></template>
+    <!--数据传递一定要分清层次 这里starts和average只传到了这里-->
+    <template is="starsTemplate" data="{{stars: stars, avg:average}}"></template>
   </view>
 </template>

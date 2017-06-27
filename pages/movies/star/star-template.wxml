@@ -1,12 +1,11 @@
 <template name="starsTemplate">
   <view class="pingfen-container">
     <view class="stars">
-      <!--<block wx:for="{{stars}}" wx:for-item="item" wx:key="unique">
-        <image wx:if="{{item == 1}}" src="/images/icon/star.png"></image>
-        <image wx:else="{{item == 0}}" src="/images/icon/none-star.png"></image>
-      </block>-->
-      {{stars}}
+      <block wx:for="{{stars}}" wx:for-item="i" wx:key="unique">
+        <image wx:if="{{i==1}}" src="/images/icon/star.png"></image>
+        <image wx:else src="/images/icon/none-star.png"></image>
+      </block>
     </view>
-    <text class="score">{{average}}</text>
+    <text class="score">{{avg}}</text>
   </view>
 </template>
