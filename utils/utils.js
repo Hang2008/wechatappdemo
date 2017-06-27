@@ -13,6 +13,7 @@ function convertToStarsArray(stars) {
 }
 
 function sendRequest(url, callback) {
+    wx.showNavigationBarLoading();
     wx.request({
         url: url,
         header: {
@@ -27,7 +28,19 @@ function sendRequest(url, callback) {
         }
     });
 }
+
+function getByteLen(str) {
+    var len = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str[i].match(/[^x00-xff]/ig) != null) //全角 
+            len += 2;
+        else
+            len += 1;
+    };
+    return len;
+}
 module.exports = {
     convertToStarsArray: convertToStarsArray,
-    sendRequest: sendRequest
+    sendRequest: sendRequest,
+    getByteLen: getByteLen
 }

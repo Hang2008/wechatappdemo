@@ -66,8 +66,8 @@ Page({
         for (var idx in subjects) {
             var subject = subjects[idx];
             var title = subject.original_title;
-            if (title.length > 6) {
-                title = title.substring(0, 6) + "...";
+            if (Utils.getByteLen(title) > 14) {
+                title = title.substring(0, 7) + "...";
             }
             var tempObj = {
                 title: title,
@@ -87,6 +87,7 @@ Page({
         }
         // wx.setStorageSync(type, readyData);
         this.setData(readyData);
+        wx.hideNavigationBarLoading();
     },
 
     onMoreTap: function (event) {

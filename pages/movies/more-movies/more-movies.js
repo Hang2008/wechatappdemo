@@ -1,6 +1,8 @@
 var Utils = require("../../../utils/utils");
 var app = getApp();
 Page({
+    start: 0,
+    currentUrl: "",
     /**
      * 页面的初始数据
      */
@@ -13,24 +15,23 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var url = "";
         switch (options.category) {
             case "itMovies":
                 this.data.pageTitle = "正在热映";
-                url = app.globleData.baseUrl + "/v2/movie/in_theaters";
+                this.currentUrl = app.globleData.baseUrl + "/v2/movie/in_theaters";
                 break;
             case "csMovies":
                 this.data.pageTitle = "即将上映";
-                url = app.globleData.baseUrl + "/v2/movie/coming_soon";
+                this.currentUrl = app.globleData.baseUrl + "/v2/movie/coming_soon";
                 break;
             case "topMovies":
                 this.data.pageTitle = "豆瓣Top250";
-                url = app.globleData.baseUrl + "/v2/movie/top250";
+                this.currentUrl = app.globleData.baseUrl + "/v2/movie/top250";
                 break;
             default:
                 break;
         }
-        Utils.sendRequest(url, this.onGetMoreData);
+        Utils.sendRequest(this.currentUrl, this.onGetMoreData);
     },
 
     onReady: function (event) {
@@ -41,12 +42,15 @@ Page({
 
     onGetMoreData: function (response) {
         var movies = [];
+        if (this.data.movies.length > 0) {
+            movies = this.data.movies;
+        }
         var subjects = response.subjects;
         for (var idx in subjects) {
             var subject = subjects[idx];
             var title = subject.original_title;
-            if (title.length > 6) {
-                title = title.substring(0, 6) + "...";
+            if (Utils.getByteLen(title) > 14) {
+                title = title.substring(0, 14) + "...";
             }
             var tempObj = {
                 title: title,
@@ -60,5 +64,12 @@ Page({
         this.setData({
             movies: movies
         });
+        wx.hideNavigationBarLoading();
+        this.start += 20;
+    },
+
+    onScrollToBottom: function (event) {
+        var finalUrl = this.currentUrl + "?start=" + this.start + "&count=20";
+        Utils.sendRequest(finalUrl, this.onGetMoreData);
     }
 })
