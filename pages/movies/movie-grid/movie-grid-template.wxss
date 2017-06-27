@@ -1,0 +1,13 @@
+@import "../movie/movie-template.wxss";
+
+/*实现对相同模块的grid排布*/
+
+.movieItemContainer {
+  float: left;
+  margin-bottom: 40rpx;
+}
+
+.movie-grid {
+  margin-left: 25rpx;
+  margin-top: 30rpx;
+}
