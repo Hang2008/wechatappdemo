@@ -10,8 +10,5 @@
 .movie-grid {
   margin-left: 25rpx;
   margin-top: 30rpx;
-}
-
-scroll-view {
   height: 1300rpx;
 }

@@ -50,7 +50,7 @@ Page({
             var subject = subjects[idx];
             var title = subject.original_title;
             if (Utils.getByteLen(title) > 14) {
-                title = title.substring(0, 14) + "...";
+                title = title.substring(0, 7) + "...";
             }
             var tempObj = {
                 title: title,
@@ -65,11 +65,20 @@ Page({
             movies: movies
         });
         wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
         this.start += 20;
     },
 
-    onScrollToBottom: function (event) {
+    onReachBottom: function () {
         var finalUrl = this.currentUrl + "?start=" + this.start + "&count=20";
         Utils.sendRequest(finalUrl, this.onGetMoreData);
+    },
+
+    onPullDownRefresh: function (event) {
+        this.data.movies = {};
+        this.start = 0;
+        var finalUrl = this.currentUrl + "?start=0&count=20";
+        Utils.sendRequest(finalUrl, this.onGetMoreData);
+        wx.showNavigationBarLoading();
     }
 })
