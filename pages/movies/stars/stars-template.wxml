@@ -1,0 +1,16 @@
+<template name="starsTemplate">
+  <view class="stars-container">
+    <view class="stars">
+    <!--如果是3.5这种半星，那么数组可以变成[1,1,1,2,0]，这个地方跟下面的注释配套可以完成以上结果-->
+      <block wx:for="{{stars}}" wx:for-item="i" wx:key="unique">
+        <image wx:if="{{i}}" src="/images/icon/star.png"></image>
+        <image wx:else src="/images/icon/none-star.png"></image>
+        <!--<image wx:if="{{i==1}}" src="src1"></image>
+        <image wx:elif="{{i==2}}" src="src2"></image>
+        ...........................................
+        <image wx:else="{{i==0}}" src="src3"></image>-->
+      </block>
+    </view>
+    <text class="star-score">{{score}}</text>
+  </view>
+</template>

@@ -1,0 +1,10 @@
+<import src="../stars/stars-template.wxml" />
+
+<template name="movieTemplate">
+  <view class="movie-container">
+    <image class="movie-img" src="{{coverageUrl}}"></image>
+    <text class="movie-title">{{title}}</text>
+    <!--以下是新的数据绑定的写法，这里stars和average又重新组装成了一个javascript对象-->
+    <template is="starsTemplate" data="{{stars:stars,score:average}}"/>
+  </view>
+</template>

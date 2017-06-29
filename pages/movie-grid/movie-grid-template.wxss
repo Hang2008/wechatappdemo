@@ -1,0 +1,13 @@
+@import "../movies/movie/movie-template.wxss";
+
+.single-view-container{
+  float: left;
+  margin-bottom: 40rpx;
+}
+
+
+/*因为要实现scrollview的效果，所以必须制定高度才能反应*/
+.grid-container{
+  height: 1300rpx;
+  margin: 40rpx 0 40rpx 8rpx;
+}
