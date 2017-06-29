@@ -1,14 +1,12 @@
 {
-  "pages": [
-      "pages/welcome/welcome",
-      "pages/posts/post",
-      "pages/posts/post-detail/post-detail"
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
   ],
-    "window": {
-      "navigationBarTextStyle": "black",
-      "navigationBarTitleText": "珊瑚科技出品",
-      "backgroundColor": "#eeeeee",
-      "navigationBarBackgroundColor": "#405f80",
-      "backgroundTextStyle": "light"
-    }
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
 }
