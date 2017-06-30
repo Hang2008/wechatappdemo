@@ -24,7 +24,10 @@ function sendRequest(url, callback) {
                 callback(res.data);
             }
         },
-        fail: function () {
+        fail: function (error) {
+            wx.showToast({
+                title: error,
+            })
         }
     });
 }

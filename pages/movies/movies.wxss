@@ -1,4 +1,5 @@
 @import "movie-list/movie-list-template.wxss";
+@import "movie-grid/movie-grid-template.wxss";
 
 .mainContainer {
   background-color: #f2f2f2;
@@ -6,4 +7,42 @@
 
 text {
   color: #666;
+}
+
+.searchView {
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #f2f2f2;
+}
+
+.placeholder {
+  font-size: 24rpx;
+  color: #d1d1d1;
+}
+
+.searchView input {
+  height: 100%;
+  width: 600rpx;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+
+/*这个地方给搜索icon设置长宽后实际显示的是1/2*/
+
+.search-icon {
+  margin-left: 20rpx;
+  padding: 10rpx 0;
+}
+
+.search-pannel {
+  position: absolute;
+  top: 80rpx;
+}
+
+.search-close-icon {
+  height: 24rpx;
+  width: 24rpx;
+  margin: auto 0 auto 10rpx;
 }

@@ -8,7 +8,9 @@ Page({
     data: {
         itMovies: {},
         csMovies: {},
-        topMovies: {}
+        topMovies: {},
+        searchResults: {},
+        isSearchShow: false
     },
 
     /**
@@ -95,5 +97,53 @@ Page({
         wx.navigateTo({
             url: 'more-movies/more-movies?category=' + category
         })
+    },
+
+    onBindFocus: function (event) {
+        console.log("onBindFocus");
+        this.setData({
+            isSearchShow: true
+        });
+    },
+
+    onBindconfirm: function (event) {
+        var text = event.detail.value;
+        var searchUrl = app.globleData.baseUrl + "/v2/movie/search?q=" + text;
+        console.log("text = " + text);
+        Utils.sendRequest(searchUrl, this.showResults);
+    },
+    closeSearch: function () {
+        console.log("closeSearch");
+        this.setData({
+            searchResults: {},
+            isSearchShow: false
+        });
+    },
+
+    showResults: function (response) {
+        var movies = [], subjects = [];
+        subjects = response.subjects;
+        for (var idx in subjects) {
+            var subject = subjects[idx];
+            var title = subject.original_title;
+            if (Utils.getByteLen(title) > 14) {
+                title = title.substring(0, 7) + "...";
+            }
+            var tempObj = {
+                title: title,
+                average: subject.rating.average,
+                coverImg: subject.images.large,
+                movieId: subject.id,
+                stars: Utils.convertToStarsArray(subject.rating.stars)
+            };
+            movies.push(tempObj);
+        }
+        this.setData({
+            isSearchShow: false,
+            searchResults: {
+                movies: movies
+            }
+        });
+        wx.hideNavigationBarLoading();
     }
 })

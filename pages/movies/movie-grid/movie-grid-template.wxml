@@ -1,5 +1,6 @@
 <import src="../movie/movie-template.wxml" />
 <template name="movieGridTemplate">
+<text>SOUNIBIUBUBU</text>
   <view class="movie-grid">
     <block wx:for="{{movies}}" wx:for-item="movie" wx:key="unique">
       <view class="movieItemContainer">

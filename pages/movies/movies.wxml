@@ -1,6 +1,16 @@
 <import src="movie-list/movie-list-template.wxml" />
-<view class="mainContainer">
+<import src="movie-grid/movie-grid-template.wxml" />
+<view class="searchView">
+  <icon type="search" class="search-icon" />
+  <input type="text" placeholder="电影名称/演员/类型/国家" placeholder-class="placeholder" bindfocus="onBindFocus" bindconfirm="onBindconfirm" />
+  <image wx:if="{{!isSearchShow}}" src="../../images/icon/xx.png" class="search-close-icon" catchtap="closeSearch"></image>
+</view>
+<view wx:if="{{!isSearchShow}}" class="mainContainer">
   <template is="movieListTemplate" data="{{...itMovies}}"></template>
   <template is="movieListTemplate" data="{{...csMovies}}"></template>
   <template is="movieListTemplate" data="{{...topMovies}}"></template>
+</view>
+
+<view wx:if="{{isSearchShow}}" class="search-pannel">
+  <template is="movieGridTemplate" data="{{...searchResults}}"></template>
 </view>
