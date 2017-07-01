@@ -80,5 +80,11 @@ Page({
         var finalUrl = this.currentUrl + "?start=0&count=20";
         Utils.sendRequest(finalUrl, this.onGetMoreData);
         wx.showNavigationBarLoading();
+    },
+    onMovieClick: function (event) {
+        var movieId = event.currentTarget.dataset.movieid;
+        wx.navigateTo({
+            url: '../movie-detail/movie-detail?movieId=' + movieId
+        });
     }
 })

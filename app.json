@@ -1,29 +1,30 @@
 {
-  "pages": [
-    "pages/movies/movies",
-    "pages/welcome/welcome",
-    "pages/posts/post",
-    "pages/posts/post-detail/post-detail",
-    "pages/movies/more-movies/more-movies"
-  ],
-  "window": {
-    "navigationBarBackgroundColor": "#E4E3DE"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/movies/movies",
-        "text": "电影",
-        "iconPath": "images/tab/maoyan.jpeg",
-        "selectedIconPath": "images/tab/selectedmaoyan.jpeg"
-      },
-      {
-        "pagePath": "pages/posts/post",
-        "text": "阅读",
-        "iconPath": "images/tab/book.jpeg",
-        "selectedIconPath": "images/tab/selectedbook.jpeg"
-      }
-    ]
-  },
-  "borderStyle": "white "
+    "pages": [
+        "pages/movies/movies",
+        "pages/welcome/welcome",
+        "pages/posts/post",
+        "pages/posts/post-detail/post-detail",
+        "pages/movies/more-movies/more-movies",
+        "pages/movies/movie-detail/movie-detail"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#E4E3DE"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/movies/movies",
+                "text": "电影",
+                "iconPath": "images/tab/maoyan.jpeg",
+                "selectedIconPath": "images/tab/selectedmaoyan.jpeg"
+            },
+            {
+                "pagePath": "pages/posts/post",
+                "text": "阅读",
+                "iconPath": "images/tab/book.jpeg",
+                "selectedIconPath": "images/tab/selectedbook.jpeg"
+            }
+        ]
+    },
+    "borderStyle": "white "
 }

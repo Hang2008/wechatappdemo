@@ -112,8 +112,9 @@ Page({
         console.log("text = " + text);
         Utils.sendRequest(searchUrl, this.showResults);
     },
+
+    // 点击xx清除输入框文字还不知道怎么搞
     closeSearch: function () {
-        console.log("closeSearch");
         this.setData({
             searchResults: {},
             isSearchShow: false
@@ -142,8 +143,16 @@ Page({
             isSearchShow: false,
             searchResults: {
                 movies: movies
-            }
+            },
+            isSearchShow: true
         });
         wx.hideNavigationBarLoading();
+    },
+
+    onMovieClick: function (event) {
+        var movieId = event.currentTarget.dataset.movieid;
+        wx.navigateTo({
+            url: 'movie-detail/movie-detail?movieId=' + movieId
+        });
     }
 })

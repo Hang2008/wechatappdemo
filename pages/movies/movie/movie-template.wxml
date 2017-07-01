@@ -1,6 +1,7 @@
 <import src="../star/star-template.wxml" />
 <template name="movieTemplate">
-  <view class="movie-container">
+  <!--一定是页面绑定的数据才能设置到dataset里面, 看仔细了!-->
+  <view class="movie-container" catchtap="onMovieClick" data-movieid="{{movieId}}">
     <image class="movie-post" src="{{coverImg}}"></image>
     <text class="movie-title">{{title}}</text>
     <!--数据传递一定要分清层次 这里starts和average只传到了这里-->
