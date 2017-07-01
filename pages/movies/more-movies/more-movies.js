@@ -3,6 +3,7 @@ var app = getApp();
 Page({
     start: 0,
     currentUrl: "",
+    isLoadingMore: false,
     /**
      * 页面的初始数据
      */
@@ -67,9 +68,14 @@ Page({
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
         this.start += 20;
+        this.isLoadingMore = false;
     },
 
     onReachBottom: function () {
+        if (this.isLoadingMore) {
+            return;
+        }
+        this.isLoadingMore = true;
         var finalUrl = this.currentUrl + "?start=" + this.start + "&count=20";
         Utils.sendRequest(finalUrl, this.onGetMoreData);
     },
