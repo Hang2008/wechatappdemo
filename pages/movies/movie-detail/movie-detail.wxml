@@ -20,7 +20,7 @@
       </text>
     </view>
   </view>
-  <image class="movie-img" src="{{movie.movieImg}}" mode="widthFix" />
+  <image class="movie-img" src="{{movie.movieImg}}" mode="widthFix" data-src="{{movie.movieImg}}" catchtap="viewMoviePostImg" />
   <view class="summary">
     <text class="original-title">{{movie.originalTitle}}</text>
     <view class="flex-row">

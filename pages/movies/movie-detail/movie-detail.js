@@ -21,6 +21,7 @@ Page({
         if (!data) {
             return;
         }
+        console.log("movie == " + JSON.stringify(data));
         wx.hideNavigationBarLoading();
         var director = {
             avatar: "",
@@ -51,9 +52,14 @@ Page({
             castsInfo: Utils.convertToCastInfos(data.casts),
             summary: data.summary
         }
-        console.log("movie == " + JSON.stringify(movie));
         this.setData({
             movie: movie
+        });
+    },
+    viewMoviePostImg: function (event) {
+        var imgSrc = event.currentTarget.dataset.src;
+        wx.previewImage({
+            urls: [imgSrc]
         });
     }
 })
