@@ -17,6 +17,27 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        wx.hideShareMenu();
+        // 这些用户信息相关函数只针对有appId的程序, 无appId的程序都返回的是模拟数据, getUserInfo总会返回success!
+        // 有appId的程序在缓存功能里多了一个选项:清除授权数据!
+        // wx.login({
+        //     success: function () {
+        // 先调用login接口再getUserInfo才能成功返回
+        // 不调login时调用getUserInfo系统会自动调用login授权");
+        wx.getUserInfo({
+            // true/false 控制返回信息是否包含加密数据
+            withCredentials: false,
+            success: function (res) {
+                console.log(res)
+            },
+            fail: function (res) {
+                console.log(res)
+            }
+        })
+
+        //     }
+        // })
+
         var self = this;
         var inTheatersUrl = app.globleData.baseUrl + "/v2/movie/in_theaters" + "?start=0&count=3";
         var comingSoonUrl = app.globleData.baseUrl + "/v2/movie/coming_soon" + "?start=0&count=3";
@@ -153,6 +174,15 @@ Page({
         var movieId = event.currentTarget.dataset.movieid;
         wx.navigateTo({
             url: 'movie-detail/movie-detail?id=' + movieId
+        });
+    },
+
+    onSettingClick: function () {
+        //手动更改用户设置
+        wx.openSetting({
+            success: (res) => {
+                console.log(res);
+            }
         });
     }
 })

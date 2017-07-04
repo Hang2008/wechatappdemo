@@ -10,7 +10,7 @@
   <template is="movieListTemplate" data="{{...csMovies}}"></template>
   <template is="movieListTemplate" data="{{...topMovies}}"></template>
 </view>
-
+<button class="set-button" catchtap="onSettingClick">授权管理</button>
 <view wx:if="{{isSearchShow}}" class="search-pannel">
   <template is="movieGridTemplate" data="{{...searchResults}}"></template>
 </view>
